@@ -11,15 +11,16 @@ class test extends uvm_test;
     //  Group: Variables
     driver          driver_h;
     sequencer       sequencer_h;
-    leon_sequence leon_sequence_h;
+    generic_sequence generic_sequence_h;
     //  Group: Functions
     function void build_phase(uvm_phase phase);
         /*  note: Do not call super.build_phase() from any class that is extended from an UVM base class!  */
         /*  For more information see UVM Cookbook v1800.2 p.503  */
         //super.build_phase(phase);
+        
         sequencer_h  = new("sequencer_h",this);
         driver_h     = driver::type_id::create("driver_h",this);
-        leon_sequence_h = new("leon_sequence_h");
+        generic_sequence_h = new("generic_sequence_h");
     endfunction: build_phase
 
     //  Function: connect_phase
@@ -30,7 +31,7 @@ class test extends uvm_test;
     task run_phase(uvm_phase phase);
         phase.raise_objection(this);
         $display("test have started ");
-        leon_sequence_h.start(sequencer_h);
+        generic_sequence_h.start(sequencer_h);
         phase.drop_objection(this);
     endtask: run_phase
     
