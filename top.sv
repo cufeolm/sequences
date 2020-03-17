@@ -24,6 +24,7 @@ module top;
 
 initial begin
    //uvm_config_db #(virtual tinyalu_bfm)::set(null, "*", "bfm", bfm);
+   fill_si_array( );
    run_test("test");
 end
 
