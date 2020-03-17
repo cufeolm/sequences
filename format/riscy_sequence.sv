@@ -1,6 +1,6 @@
-class riscy_transaction extends cmd_transaction;
+class riscy_sequence extends cmd_sequence;
 	
-	  `uvm_object_utils(processor_transaction)
+	  `uvm_object_utils(riscy_sequence)
 	  
 	function new (string name = "");
 		super.new(name);
@@ -28,4 +28,4 @@ class riscy_transaction extends cmd_transaction;
 		logic [3:0]succ;
 		logic [11:0]csr;
 
-endclass : riscy_transaction
+endclass : riscy_sequence

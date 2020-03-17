@@ -1,6 +1,6 @@
-class amber_transaction extends cmd_transaction;
+class amber_sequence extends cmd_sequence;
 	
-	  `uvm_object_utils(processor_transaction)
+	  `uvm_object_utils(amber_sequence)
 	  
 	function new (string name = "");
 		super.new(name);
@@ -39,4 +39,4 @@ class amber_transaction extends cmd_transaction;
 		logic n;
 	
 
-endclass : amber_transaction
+endclass : amber_sequence
