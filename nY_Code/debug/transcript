@@ -1,0 +1,44 @@
+# QuestaSim-64 vlog 10.4e Compiler 2016.04 Apr  9 2016
+# Start time: 16:06:24 on Mar 08,2020
+# vlog mips_package.sv 
+# -- Compiling package mips_package
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) Using implicit +incdir+C:/questasim64_10.4e/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# 
+# ** Error: mips_package.sv(7): (vlog-13000) Enum member 'add' with X or Z assignment is only possible when enum declaration is of 4 state type.
+# 
+# ** Error: mips_package.sv(8): (vlog-13000) Enum member 'addsb' with X or Z assignment is only possible when enum declaration is of 4 state type.
+# 
+# ** Error: mips_package.sv(9): (vlog-13000) Enum member 'addfb' with X or Z assignment is only possible when enum declaration is of 4 state type.
+# 
+# End time: 16:06:24 on Mar 08,2020, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# C:/questasim64_10.4e/win64/vlog failed.
+# QuestaSim-64 vlog 10.4e Compiler 2016.04 Apr  9 2016
+# Start time: 16:07:52 on Mar 08,2020
+# vlog mips_package.sv 
+# -- Compiling package mips_package
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) Using implicit +incdir+C:/questasim64_10.4e/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# 
+# ** Error: mips_package.sv(7): (vlog-13000) Enum member 'add' with X or Z assignment is only possible when enum declaration is of 4 state type.
+# 
+# ** Error: mips_package.sv(8): (vlog-13000) Enum member 'addsb' with X or Z assignment is only possible when enum declaration is of 4 state type.
+# 
+# ** Error: mips_package.sv(9): (vlog-13000) Enum member 'addfb' with X or Z assignment is only possible when enum declaration is of 4 state type.
+# 
+# End time: 16:07:53 on Mar 08,2020, Elapsed time: 0:00:01
+# Errors: 3, Warnings: 0
+# C:/questasim64_10.4e/win64/vlog failed.
+# QuestaSim-64 vlog 10.4e Compiler 2016.04 Apr  9 2016
+# Start time: 16:08:43 on Mar 08,2020
+# vlog mips_package.sv 
+# -- Compiling package mips_package
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) Using implicit +incdir+C:/questasim64_10.4e/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# 
+# 
+# Top level modules:
+# 	--none--
+# End time: 16:08:43 on Mar 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
