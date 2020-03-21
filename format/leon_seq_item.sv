@@ -1,6 +1,6 @@
-class leon_sequence extends cmd_sequence;
+class leon_seq_item extends GUVM_sequence_item;
 	
-	  `uvm_object_utils(leon_sequence)
+	  `uvm_object_utils(leon_seq_item)
 	  
 	function new (string name = "");
 		super.new(name);
@@ -23,4 +23,4 @@ class leon_sequence extends cmd_sequence;
 		logic [8:0]opf;
 	
 
-endclass : leon_sequence
+endclass : leon_seq_item

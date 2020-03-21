@@ -1,6 +1,6 @@
-class amber_sequence extends cmd_sequence;
+class amber_seq_item extends GUVM_sequence_item;
 	
-	  `uvm_object_utils(amber_sequence)
+	  `uvm_object_utils(amber_seq_item)
 	  
 	function new (string name = "");
 		super.new(name);
@@ -39,4 +39,4 @@ class amber_sequence extends cmd_sequence;
 		logic n;
 	
 
-endclass : amber_sequence
+endclass : amber_seq_item

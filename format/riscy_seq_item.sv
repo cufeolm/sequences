@@ -1,6 +1,6 @@
-class riscy_sequence extends cmd_sequence;
+class riscy_seq_item extends GUVM_sequence_item;
 	
-	  `uvm_object_utils(riscy_sequence)
+	  `uvm_object_utils(riscy_seq_item)
 	  
 	function new (string name = "");
 		super.new(name);
@@ -28,4 +28,4 @@ class riscy_sequence extends cmd_sequence;
 		logic [3:0]succ;
 		logic [11:0]csr;
 
-endclass : riscy_sequence
+endclass : riscy_seq_item
