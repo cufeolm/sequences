@@ -1,6 +1,6 @@
-class riscy_seq_item extends GUVM_sequence_item;
+class target_seq_item extends GUVM_sequence_item;
 	
-	  `uvm_object_utils(riscy_seq_item)
+	  `uvm_object_utils(target_seq_item)
 	  
 	function new (string name = "");
 		super.new(name);
