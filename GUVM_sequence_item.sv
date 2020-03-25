@@ -2,7 +2,8 @@ class GUVM_sequence_item extends uvm_sequence_item;
 
   `uvm_object_utils(GUVM_sequence_item)
    rand logic [31:0] inst;
-   rand logic [31:0] data;// the effective data that should be acted upon 
+   rand logic [31:0] data;// the effective data that should be stored inside memory 
+   logic [31:0] op1,op2;// the 2 operands that shoould be at the registers 
 
    protected function logic [31:0] generate_instruction(opcode target_instruction );
 		//logic [31:0] rand_inst;
@@ -65,7 +66,7 @@ class GUVM_sequence_item extends uvm_sequence_item;
 
  function string convert2string();
 	string            s;
-	s = $sformatf("command sequence : inst =%d",
+	s = $sformatf("command sequence : inst =%b",
 				  inst);
 	return s;
  endfunction : convert2string

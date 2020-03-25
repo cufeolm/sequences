@@ -33,7 +33,11 @@ class target_seq_item extends GUVM_sequence_item;
 		do_copy(temp);
 	endfunction
 
-	
+	function void update_rd();
+		parameter upper_bit = 29 ;
+		parameter lower_bit = 25 ;
+		inst[upper_bit:lower_bit]=rd;
+	endfunction 
 	function void do_copy(uvm_object rhs);
 		target_seq_item RHS;
 		assert(rhs != null) else
