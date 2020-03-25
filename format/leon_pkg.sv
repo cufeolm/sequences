@@ -51,7 +51,7 @@ package leon_package;
 
 
    function GUVM_sequence_item get_format (logic [31:0] inst);
-   leon_seq_item ay;
+   target_seq_item ay;
    GUVM_sequence_item k ; 
    k = new("k");
    ay = new("ay");
