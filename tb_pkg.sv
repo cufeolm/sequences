@@ -13,8 +13,6 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-just a test
-2
 package tb_pkg;
    import uvm_pkg::*;
    `include "uvm_macros.svh"
