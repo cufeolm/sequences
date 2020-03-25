@@ -16,8 +16,8 @@ package leon_package;
       }special_op_t;//this op code for filling and reading the register files
 
 
-        opcode si_a [] ; 
-  integer supported_instructions ; 
+   opcode si_a [] ; 
+   integer supported_instructions ; 
 
    //includes 
    `include "GUVM_sequence_item.sv"

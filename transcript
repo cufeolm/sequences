@@ -1,18 +1,32 @@
 # do run.do
 # QuestaSim-64 vlog 10.4e Compiler 2016.04 Apr  9 2016
-# Start time: 20:47:16 on Mar 25,2020
+# Start time: 21:32:05 on Mar 25,2020
 # vlog "+incdir+format" target_pkg.sv 
 # -- Compiling package leon_package
 # -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 # ** Note: (vlog-2286) Using implicit +incdir+D:/installedPrograms/MentorGraphics/questasim64_10.4e/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
 # 
+# ** Warning: ** while parsing file included at target_pkg.sv(1)
+# ** while parsing file included at format/leon_pkg.sv(25)
+# ** while parsing file included at target_sequence_item.sv(1)
+# ** at format/leon_seq_item.sv(64): (vlog-2643) Unterminated string literal continues onto next line.
+# 
+# ** Warning: ** while parsing file included at target_pkg.sv(1)
+# ** at generic_sequence.sv(31): (vlog-2240) Treating stand-alone use of function 'ran' as an implicit VOID cast.
+# 
+# ** Warning: ** while parsing file included at target_pkg.sv(1)
+# ** at generic_sequence.sv(32): (vlog-2240) Treating stand-alone use of function 'setup' as an implicit VOID cast.
+# 
+# ** Warning: ** while parsing file included at target_pkg.sv(1)
+# ** at generic_sequence.sv(35): (vlog-2240) Treating stand-alone use of function 'convert2string' as an implicit VOID cast.
+# 
 # 
 # Top level modules:
 # 	--none--
-# End time: 20:47:16 on Mar 25,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
+# End time: 21:32:06 on Mar 25,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 4
 # QuestaSim-64 vlog 10.4e Compiler 2016.04 Apr  9 2016
-# Start time: 20:47:16 on Mar 25,2020
+# Start time: 21:32:06 on Mar 25,2020
 # vlog top.sv 
 # -- Compiling module top
 # -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
@@ -22,11 +36,21 @@
 # 
 # Top level modules:
 # 	top
-# End time: 20:47:17 on Mar 25,2020, Elapsed time: 0:00:01
+# End time: 21:32:06 on Mar 25,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim top 
-# Start time: 20:47:17 on Mar 25,2020
+# Start time: 21:32:06 on Mar 25,2020
 # ** Note: (vsim-3812) Design is being optimized...
+# 
+# ** Warning: generic_sequence.sv(31): (vopt-2240) Treating stand-alone use of function 'ran' as an implicit VOID cast.
+# 
+# ** Warning: generic_sequence.sv(32): (vopt-2240) Treating stand-alone use of function 'setup' as an implicit VOID cast.
+# 
+# ** Warning: generic_sequence.sv(35): (vopt-2240) Treating stand-alone use of function 'convert2string' as an implicit VOID cast.
+# 
+# ** Warning: format/leon_seq_item.sv(24): (vopt-2250) Function "ran" has no return value assignment.
+# 
+# ** Warning: format/leon_seq_item.sv(27): (vopt-2250) Function "setup" has no return value assignment.
 # 
 # //  Questa Sim-64
 # //  Version 10.4e win64 Apr  9 2016
@@ -74,26 +98,15 @@
 # UVM_INFO @ 0: reporter [RNTST] Running test test...
 # test have started 
 # driver have started
-# driver fetch
-# inst is 00000000 , 00000000000000000000000000000000 ,          0
-# driver have started
-# driver fetch
-# inst is 92250004 , 10010010001001010000000000000100 , 2451898372
-# driver have started
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 0: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# ** Fatal: (SIGSEGV) Bad handle or reference.
+#    Time: 0 ns  Iteration: 50  Process: /uvm_pkg::uvm_sequence_base::start/#FORK#294_5f80ae6a File: format/leon_seq_item.sv
+# Fatal error in Function leon_package/GUVM_sequence_item::ran at GUVM_sequence_item.sv line 31
 # 
-# --- UVM Report Summary ---
+# HDL call sequence:
+# Stopped at GUVM_sequence_item.sv 31 Function leon_package/GUVM_sequence_item::ran
+# called from  format/leon_seq_item.sv 25 Function leon_package/target_seq_item::ran
+# called from  generic_sequence.sv 31 Task leon_package/generic_sequence::body
+# called from  D:/installedPrograms/MentorGraphics/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/seq/uvm_sequence_base.svh 314 Task uvm_pkg/uvm_sequence_base::start
 # 
-# ** Report counts by severity
-# UVM_INFO :    4
-# UVM_WARNING :    0
-# UVM_ERROR :    0
-# UVM_FATAL :    0
-# ** Report counts by id
-# [Questa UVM]     2
-# [RNTST]     1
-# [TEST_DONE]     1
-# ** Note: $finish    : D:/installedPrograms/MentorGraphics/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 0 ns  Iteration: 230  Instance: /top
-# End time: 20:47:20 on Mar 25,2020, Elapsed time: 0:00:03
-# Errors: 0, Warnings: 0
+# End time: 21:32:10 on Mar 25,2020, Elapsed time: 0:00:04
+# Errors: 2, Warnings: 5
