@@ -1,6 +1,6 @@
 //  Class: test
 //
-   typedef uvm_sequencer #(cmd_sequence_item) sequencer;
+   typedef uvm_sequencer #(GUVM_sequence_item) sequencer;
 
 class test extends uvm_test;
     `uvm_component_utils(test);

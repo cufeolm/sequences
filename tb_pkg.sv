@@ -17,19 +17,14 @@ package tb_pkg;
    import uvm_pkg::*;
    `include "uvm_macros.svh"
    //declarations
-   typedef enum logic [31:0] { 
-      LDW= 32'b11xxxxx000011xxxxx1xxxxxxxxxxxxx,
-      A=32'b10xxxxx000000xxxxx000000000xxxxx,
-      
-      N=32'b0000000100xxxxxxxxxxxxxxxxxxxxxx,
-      S=32'b10xxxxx000100xxxxx000000000xxxxx,
-      }opcode;
+   `include "target_pkg.sv"
   opcode si_a [] ; 
   integer supported_instructions ; 
 
    //includes 
-   `include "cmd_sequence_item.sv"
+   `include "GUVM_sequence_item.sv"
    //`include "leon_sequence_item.sv"
+  `include "target_sequence_item.sv"
    `include "generic_sequence.sv"
    //`include "mips_package.sv"
    `include "driver.sv"
@@ -59,9 +54,9 @@ package tb_pkg;
 
   
 /*
-function cmd_sequence_item get_format (logic [31:0] inst);
+function GUVM_sequence_item get_format (logic [31:0] inst);
    leon_seq_item ay;
-   cmd_sequence_item k ; 
+   GUVM_sequence_item k ; 
    k = new("k");
    ay = new("ay");
    ay.inst=inst;

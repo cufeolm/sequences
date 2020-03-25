@@ -25,16 +25,16 @@ class leon_sequence extends uvm_sequence #(leon_seq_item);
  endclass : leon_sequence
 
 /*
-class leon_sequence extends uvm_sequence #(cmd_sequence_item);
+class leon_sequence extends uvm_sequence #(GUVM_sequence_item);
     `uvm_object_utils(leon_sequence);
-    cmd_sequence_item command ;
+    GUVM_sequence_item command ;
     function new(string name = "leon_sequence");
        super.new(name);
 
     endfunction : new
  
     task body();
-        command = cmd_sequence_item::type_id::create("command");
+        command = GUVM_sequence_item::type_id::create("command");
         start_item(command);
         command.inst = 1;
         finish_item(command);

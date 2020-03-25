@@ -1,5 +1,5 @@
 // now this file is the only non generic part in the sequencer chain
-class leon_seq_item extends cmd_sequence_item;
+class leon_seq_item extends GUVM_sequence_item;
 	
 	  `uvm_object_utils(leon_seq_item)
 	  
@@ -24,7 +24,7 @@ class leon_seq_item extends cmd_sequence_item;
 		logic [8:0]opf;
 
 		leon_seq_item temp_leon ; 
-		cmd_sequence_item temp;
+		GUVM_sequence_item temp;
 	function void ran(); // special kind of randomization 
 		
 		//inst = 32'b11000000010010000010000000000000 ; // LSB for leon 
@@ -32,7 +32,7 @@ class leon_seq_item extends cmd_sequence_item;
 		//$display("this inst :%d",inst);
 		//$break();
 		//op = 1 ;
-		//cmd_sequence_item temp =  get_format(this.super.this);
+		//GUVM_sequence_item temp =  get_format(this.super.this);
 		set_up();
 		//$display("this is an lsi tests :inst=%d op=%d",inst,op);
 		//temp.op ;

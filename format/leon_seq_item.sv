@@ -1,7 +1,9 @@
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 class leon_seq_item extends GUVM_sequence_item;
-	
+
 	  `uvm_object_utils(leon_seq_item)
-	  
+
 	function new (string name = "");
 		super.new(name);
 	endfunction

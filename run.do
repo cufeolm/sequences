@@ -1,6 +1,10 @@
+onerror quit
 if [file exists "work"] {vdel -all}
+
 vlib work
-vlog tb_pkg.sv 
+ 
+vlog +incdir+format tb_pkg.sv 
+
 vlog top.sv
 vsim top 
 run -all
