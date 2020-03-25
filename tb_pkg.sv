@@ -13,13 +13,17 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+just a test
 package tb_pkg;
    import uvm_pkg::*;
    `include "uvm_macros.svh"
    //declarations
    typedef enum logic [31:0] { 
-      LSB=32'b11xxxxx001001xxxxx1xxxxxxxxxxxxx,
-      LUW=32'b0000000100xxxxxxxxxxxxxxxxxxxxxx     // (NOP)
+      LDW= 32'b11xxxxx000011xxxxx1xxxxxxxxxxxxx,
+      A=32'b10xxxxx000000xxxxx000000000xxxxx,
+      
+      N=32'b0000000100xxxxxxxxxxxxxxxxxxxxxx,
+      S=32'b10xxxxx000100xxxxx000000000xxxxx,
       }opcode;
   opcode si_a [] ; 
   integer supported_instructions ; 
