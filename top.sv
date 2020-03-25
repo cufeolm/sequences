@@ -17,7 +17,7 @@
 // vsim -c -do run.do
 module top;
    import uvm_pkg::*;
-   import   tb_pkg::*;
+   import   leon_package::*;
 
 `include "uvm_macros.svh"
 

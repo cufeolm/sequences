@@ -1,6 +1,6 @@
 package leon_package;
    import uvm_pkg::*;
-`include "uvm_macros.svh"
+   `include "uvm_macros.svh"
    typedef enum logic [31:0] { 
       LDW= 32'b11xxxxx000011xxxxx1xxxxxxxxxxxxx,
       A=32'b10xxxxx000000xxxxx000000000xxxxx,
@@ -8,15 +8,48 @@ package leon_package;
       N=32'b00000001000000000000000000000000,
       S=32'b10xxxxx000100xxxxx000000000xxxxx
       }opcode;
-      
+
       typedef enum logic [31:0] { 
          Load = 32'b11xxxxx0000000000010000000000000,
          //N=32'b00000001000000000000000000000000,
          Store =32'b11xxxxx0001000000010000000000000
       }special_op_t;//this op code for filling and reading the register files
 
-     
+
+        opcode si_a [] ; 
+  integer supported_instructions ; 
+
+   //includes 
+   `include "GUVM_sequence_item.sv"
+   //`include "leon_sequence_item.sv"
+  `include "target_sequence_item.sv"
+   `include "generic_sequence.sv"
+   //`include "mips_package.sv"
+   `include "driver.sv"
+   `include "test.sv"
    
+
+  function void fill_si_array( );// fill supported instruction array 
+      // this does NOT  affect generalism this makes sure you dont run 
+      // the same function twice in a test bench 
+      `ifndef SET_UP_INSTRUCTION_ARRAY
+      `define SET_UP_INSTRUCTION_ARRAY
+          opcode si_i ; // for iteration only
+          supported_instructions = si_i.num() ;
+          si_a=new [supported_instructions] ; 
+          
+          si_i = si_i.first();
+          for (integer i=0 ; i < supported_instructions ; i++ )
+          begin   
+              si_a [i]= si_i ; 
+              si_i=si_i.next();
+              
+          end 
+          //$display("array is filled and ready to use");
+      `endif  
+  endfunction
+
+
    function GUVM_sequence_item get_format (logic [31:0] inst);
    leon_seq_item ay;
    GUVM_sequence_item k ; 
