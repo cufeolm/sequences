@@ -1,29 +1,27 @@
-/*
-   Copyright 2013 Ray Salemi
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/
-// vsim -c -do run.do
-// vsim -c -do run.do
 module top;
    import uvm_pkg::*;
-   import   leon_package::*;
+   import leon_package::*;
+   import iface::*;
+
 
 `include "uvm_macros.svh"
 
+	leon_int bfm();
+    proc dut(
+        .clk(bfm.clk),
+        .rst(bfm.rst),
+        .pciclk(bfm.pcirst),
+        .iui(bfm.integer_unit_input),
+        .iuo(bfm.integer_unit_output),
+        .ico(bfm.icache_output),
+        .ici(bfm.icache_input),
+        .dci(bfm.dcache_input),
+        .dco(bfm.dcache_output)
+    );
+
 
 initial begin
-   //uvm_config_db #(virtual tinyalu_bfm)::set(null, "*", "bfm", bfm);
+   uvm_config_db#(virtual leon_int)::set(null, "*", "processor_vi", bfm);
    fill_si_array( );
    run_test("test");
 end

@@ -9,6 +9,7 @@ class generic_sequence extends uvm_sequence #(GUVM_sequence_item);
     endfunction : new
  
     task body();
+	repeat(10) begin
         load1 = target_seq_item::type_id::create("load1");
         load2 = target_seq_item::type_id::create("load2");
         command = target_seq_item::type_id::create("command");
@@ -72,7 +73,7 @@ class generic_sequence extends uvm_sequence #(GUVM_sequence_item);
 
         //command = GUVM_sequence_item::type_id::create("command");
         //end
-        
+        end
     endtask : body
 
     
