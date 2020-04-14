@@ -18,7 +18,7 @@ package leon_package;
       }special_op_t;//this op code for filling and reading the register files
 */
 
-   opcode si_a [] ; 
+   opcode si_a [] ;
    integer supported_instructions ; 
 
    //includes 
