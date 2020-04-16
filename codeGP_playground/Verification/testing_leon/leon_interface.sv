@@ -34,17 +34,11 @@ interface GUVM_interface(input  clk );
     initial begin
         clk_pseudo = 0;
         allow_pseudo_clk = 0 ;
-        /*forever begin
-            if (allow_pseudo_clk)begin
-                $display(clk_pseudo);
-                @(posedge clk) clk_pseudo = clk;
-            end
-        end*/
-        
 	end	
+
+
     always @(clk) begin
         if (allow_pseudo_clk)begin
-            //$display(clk_pseudo);
             clk_pseudo = clk;
         end
     end
@@ -65,54 +59,36 @@ interface GUVM_interface(input  clk );
 	task verify_inst(logic [31:0] inst);
         send_inst(inst) ; 
         allow_pseudo_clk =1 ;
-        @(posedge clk_pseudo) ;//nop();
-       // repeat(3)@(posedge clk_pseudo);
-        //repeat(4)@(posedge clk_pseudo);
-       // repeat(5)@(posedge clk_pseudo);
+        @(posedge clk_pseudo) ;
         allow_pseudo_clk =0 ;
-		//repeat(2*5)#10 clk=~clk;
-        //repeat(2*5)#10 clk=~clk;
     endtask
 
 	// reveiving data from the DUT
     function logic [31:0] receive_data();//should be protected
-        //$display("madd : %b",dcache_input.maddress);
         monitor_h.write_to_monitor(dcache_input.edata);
         return dcache_input.edata;
-       // monitor_h.write_to_monitor(dcache_input.maddress);
-		//return dcache_input.maddress;
     endfunction 
 	
 	// dealing with the register file with the following load and store functions 
     //function logic [31:0] store(logic [4:0] ra);
     task store(logic [31:0] inst );
         send_inst(inst);
-        //keemo_karamilla = 1;
         allow_pseudo_clk =1 ;
-
-        repeat(2)@(posedge clk_pseudo);
-        //repeat(2*2)#10 clk=~clk;
-        
+        repeat(2)@(posedge clk_pseudo);        
         bfm.nop();
         repeat(2)@(posedge clk_pseudo);//repeat onde might cause a problem ???????????
-        //repeat(2*1)#10 clk=~clk;
 		$display("result = %0d",receive_data());
-        //repeat(2*10)#10 clk=~clk;
         repeat(10)@(posedge clk_pseudo);
-        //keemo_karamilla = 0 ;
         allow_pseudo_clk =0 ;
     endtask
 
-    //function void load(logic [4:0] ra , logic [31:0] rd);
     task load(logic [31:0] inst, logic [31:0] rd );
         send_inst(inst);
         send_data(rd);
         allow_pseudo_clk =1 ;
-        //repeat(2*1)#10 clk=~clk;
         repeat(1)@(posedge clk_pseudo);
         nop();
         repeat(4)@(posedge clk_pseudo);
-        //repeat(2*4)#10 clk=~clk;
         allow_pseudo_clk =0 ;
     endtask
 
@@ -120,10 +96,6 @@ interface GUVM_interface(input  clk );
     function void nop();
         icache_output.data = 32'h01000000;
     endfunction
-	
-    /*function void add(logic [4:0] r1,logic [4:0] r2,logic [4:0] rd);
-        send_inst({2'b10,rd,6'b0,r1,1'b0,8'b0,r2});
-    endfunction*/
 
     // initializing the core
     task set_Up();
@@ -159,7 +131,6 @@ interface GUVM_interface(input  clk );
         dcache_output_diag.flush = 1'b0;
 
         dcache_output.icdiag=dcache_output_diag;
-        //repeat (2*10)#10 clk=~clk;
         $display("we reached this point at set up");
         allow_pseudo_clk =1 ;
         repeat(10)@(posedge clk_pseudo);
@@ -168,13 +139,10 @@ interface GUVM_interface(input  clk );
 
     task reset_dut();
         rst = 1'b0;
-        //repeat (2*10)#10 clk=~clk;  
         allow_pseudo_clk =1 ;
         $display("we reached this point at reset");
-        repeat(10)@(posedge clk_pseudo);
-        
+        repeat(10)@(posedge clk_pseudo);     
 		rst = 1'b1;
-        //repeat (2*1)#10 clk=~clk;
         repeat(1)@(posedge clk_pseudo);
         allow_pseudo_clk =0 ;
     endtask : reset_dut

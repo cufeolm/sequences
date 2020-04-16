@@ -7,8 +7,7 @@ class GUVM_sequence_item extends uvm_sequence_item;
   `uvm_object_utils(GUVM_sequence_item)
    rand logic [31:0] inst;
    rand logic [31:0] data;// the effective data that should be stored inside memory 
-   logic [31:0] operand1,operand2;// the 2 operands that shoould be at the registers 
-   logic [31:0] receivedDATA;
+   logic [31:0] operand1,operand2,current_pc;// the 2 operands that shoould be at the registers 
 
    
    protected function logic [31:0] generate_instruction(opcode target_instruction );

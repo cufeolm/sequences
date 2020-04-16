@@ -46,7 +46,9 @@ class GUVM_driver extends uvm_driver #(target_seq_item);
                 $display("inst is %b %b %b %b %b %b %b %b", cmd.inst[31:28], cmd.inst[27:24], cmd.inst[23:20], cmd.inst[19:16], cmd.inst[15:12], cmd.inst[11:8], cmd.inst[7:4], cmd.inst[3:0]);
                 $display("rs1 address = %0d and rs2 address = %0d and rd address = %0d", cmd.rs1, cmd.rs2, cmd.rd);
                 $display("op1= %0d op2= %0d",cmd.operand1,cmd.operand2);
+            cmd.current_pc = bfm.get_cpc(); // getting current instruction pc 
             bfm.verify_inst(cmd.inst); // drive it to dut through interface
+            //cmd.next_pc = bfm.get_npc(); // getting next instruction pc
             Drv2Sb_port.write(cmd); // send verified instruction sequence item to scoreboard
             seq_item_port.item_done();
 

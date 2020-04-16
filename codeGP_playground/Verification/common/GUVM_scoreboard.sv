@@ -73,6 +73,9 @@ class GUVM_scoreboard extends uvm_scoreboard;
 				"test":begin // temp instruction 
 					verify_test(cmd_trans,res_trans);
 				end
+				"Jal":begin // Jump and link
+					verify_JumpAndLink(cmd_trans,res_trans);
+				end
 				default:`uvm_fatal("instruction fail", $sformatf("instruction is not add its %h", si_a[i]))
 			endcase
 		end
