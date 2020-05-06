@@ -1,7 +1,6 @@
-New Text Document.txt
-work/
-transcript
-vsim.wlf
-memfile0
-codeGP_playground/implementation
-
+Implementation/
+Verification/doc/
+Verification/run/work/
+Verification/run/transcript
+Verification/run/trace_core_xx_x.log
+Verification/run/vsim.wlf
